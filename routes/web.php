@@ -12,9 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//for post controller
+Route::get('/post','PostController@post');
+
+
+//for profile controller
+Route::get('/profile','ProfileController@profile');
+
+
+//for Category controller
+Route::get('/category','CategoryController@category');
