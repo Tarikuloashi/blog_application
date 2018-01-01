@@ -30,13 +30,12 @@ class ProfileController extends Controller
 			$file=Input::file('profile_pic');
 			$file->move(public_path().'/uploads',$file->getClientOriginalName());
 			$url=URL::to("/").'/uploads/'.$file->getClientOriginalName();
-			return $url; 
-			exit();
+			
 		}
 
 		$profiles->profile_pic=$url;
 		$profiles->save();
-		return redirect('response','Profile Added successfully');
+		return redirect('/profile')->with('response','Profile Added successfully');
 		
 
 
