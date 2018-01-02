@@ -21,6 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //for post controller
 Route::get('/post','PostController@post');
+Route::post('/addPost','PostController@addPost');
 
 
 //for profile controller
