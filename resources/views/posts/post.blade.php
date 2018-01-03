@@ -11,7 +11,7 @@
                     
                     <div class="row">
                         
-                        <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                        <form class="form-horizontal" method="POST" action="{{ url('/addPost') }}" enctype="multipart/form-data">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('post_title') ? ' has-error' : '' }}">
@@ -47,9 +47,15 @@
 
                             <div class="col-md-6">
                                 <select id="category_id" type="category_id" class="form-control" name="category_id" required> 
-                                    <option value="">Select</option>               
-                                    <option value="">Technology</option>               
-                                    <option value="">Entertainment</option>               
+                                    <option value="">Select</option>  
+                                
+                                    @if(count($categories)>0)
+                                        @foreach($categories->all() as $category)
+                                           <option value="{{$category->id}}">{{$category->category}}</option> 
+                                        @endforeach
+                                    @endif             
+                                                   
+                                                   
                                                   
                                 </select>
             
