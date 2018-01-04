@@ -9,7 +9,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-12 col-md-offset">
+        <div class="col-md-8 col-md-offset-2">
             @if(count($errors)>0)
                 @foreach($errors->all() as $error)
                     <div class="alert alert-danger">{{$error}}</div>
@@ -55,26 +55,28 @@
                         @if(count($posts)>0)
                             @foreach($posts->all() as $post)
                                 <h3 style="text-decoration: underline;color: red;"><b>{{$post->post_title}}</b></h3>
-                                <img style="margin-left: 30%" height="300px" width="300px" src="{{$post->post_image}}" alt="">
-                                <p style="color: green;">{{$post->post_body}}</p>
+                                <img style="margin-left: 30%" height="200px" width="200px" src="{{$post->post_image}}" alt="">
+                                <p style="color: green;">{{substr($post->post_body,0,100)}}</p>
                                 
                                 <ul class="nav nav-pills">
                                     <li role="presentation">
-                                        <a href=""><span class="fa fa-1x fa-eye">  VIEW</span></a>
+                                        <a href='{{url("/view/{$post->id}")}}'><span class="fa fa-1x fa-eye">  VIEW</span></a>
                                     </li>
 
                                     <li role="presentation">
-                                        <a href=""><span class="fa fa-1x fa-pencil-square">  EDIT</span></a>
+                                        <a href={{url("/edit/{$post->id}")}}><span class="fa fa-1x fa-pencil-square">  EDIT</span></a>
                                     </li>
 
                                     <li role="presentation">
-                                        <a href=""><i class="fa fa-1x fa-trash-o">  DELETE</i></a>
+                                        <a href={{url("/delete/{$post->id}")}}><i class="fa fa-1x fa-trash-o">  DELETE</i></a>
                                     </li> 
 
                                 </ul>    
 
 
                                 <cite style="float:left;"> Posted on:{{date('M j, Y H:i',strtotime($post->update_at))}}</cite>
+                                <br>
+                                <br>
                                 <hr/>
 
                             @endforeach
