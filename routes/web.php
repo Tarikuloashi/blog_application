@@ -24,6 +24,12 @@ Route::get('/post','PostController@post');
 Route::post('/addPost','PostController@addPost');
 Route::get('/view/{id}','PostController@view');
 Route::get('/edit/{id}','PostController@edit');
+Route::post('/editpost/{id}','PostController@editpost');
+Route::get('/delete/{id}','PostController@deletepost');
+Route::get('/category/{id}','PostController@category');
+Route::get('/like/{id}','PostController@like');
+Route::get('/dislike/{id}','PostController@dislike');
+Route::post('/comment/{id}','PostController@comment');
 
 
 //for profile controller

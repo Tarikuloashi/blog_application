@@ -74,7 +74,7 @@
                                 </ul>    
 
 
-                                <cite style="float:left;"> Posted on:{{date('M j, Y H:i',strtotime($post->update_at))}}</cite>
+                                <cite style="float:left;"> Posted on:{{date('M j, Y H:i',strtotime($post->updated_at))}}</cite>
                                 <br>
                                 <br>
                                 <hr/>
@@ -83,6 +83,8 @@
                         @else
                             <p>No Post Available</p>
                         @endif
+
+                        {{$posts->links()}}
 
                     </div>
                     
