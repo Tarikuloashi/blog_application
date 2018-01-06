@@ -9,7 +9,7 @@
                 {{ session('response') }}
             </div>
           @endif
-            <div class="panel panel-default text-center">
+            <div class="panel panel-default">
                 <div class="panel-heading">View Post</div>
                	<div class="panel-body">
                		<div class="col-md-4">
@@ -66,6 +66,21 @@
                           </div>
                        
                     </form>
+                   
+                    <h3>Comment:</h3>
+                      @if(count($comments)>0)
+                            @foreach($comments->all() as $comment)
+                            <div class="card">
+                              <h4 class="card-header"><strong>{{$comment->name}}</strong></h4>
+                              <div class="card-body">
+                                <p class="card-text">{{$comment->comment}}</p>
+                              </div>
+                            </div>
+                            <hr>
+                            @endforeach
+                      @else
+                            <p>No Comments Available</p>
+                      @endif
 
 
                     </div>

@@ -77,7 +77,6 @@
                                     <li role="presentation">
                                         <a href='{{url("/view/{$post->id}")}}'><span class="fa fa-1x fa-eye">  VIEW</span></a>
                                     </li>
-                                    @if(Auth::id()==1)
 
                                     <li role="presentation">
                                         <a href={{url("/edit/{$post->id}")}}><span class="fa fa-1x fa-pencil-square">  EDIT</span></a>
@@ -86,7 +85,6 @@
                                     <li role="presentation">
                                         <a href={{url("/delete/{$post->id}")}}><i class="fa fa-1x fa-trash-o">  DELETE</i></a>
                                     </li> 
-                                    @endif
 
                                 </ul>    
 
@@ -101,7 +99,6 @@
                             <p>No Post Available</p>
                         @endif
 
-                        {{$posts->links()}}
 
                     </div>
                     

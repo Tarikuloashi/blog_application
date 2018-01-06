@@ -13,6 +13,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{asset('font-awesome-4.7.0/css/font-awesome.css')}}">
+    
+
 </head>
 <body>
     <div id="app">
@@ -38,7 +40,9 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         <li><a href="{{url('/home')}}">Home</a></li>
+                    @if(Auth::id()==1)
                         <li><a href="{{url('/post')}}">Add post</a></li>
+                    @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -55,8 +59,10 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                @if(Auth::user()->id == 1)
                                     <li><a href="{{ url('/profile') }}">Profile</a></li>
                                     <li><a href="{{ url('/category') }}">Category</a></li>
+                                @endif
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

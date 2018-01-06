@@ -20,22 +20,23 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 //for post controller
-Route::get('/post','PostController@post');
-Route::post('/addPost','PostController@addPost');
-Route::get('/view/{id}','PostController@view');
-Route::get('/edit/{id}','PostController@edit');
-Route::post('/editpost/{id}','PostController@editpost');
-Route::get('/delete/{id}','PostController@deletepost');
-Route::get('/category/{id}','PostController@category');
-Route::get('/like/{id}','PostController@like');
-Route::get('/dislike/{id}','PostController@dislike');
-Route::post('/comment/{id}','PostController@comment');
+Route::get('/post','PostController@post')->middleware('auth');
+Route::post('/addPost','PostController@addPost')->middleware('auth');
+Route::get('/view/{id}','PostController@view')->middleware('auth');
+Route::get('/edit/{id}','PostController@edit')->middleware('auth');
+Route::post('/editpost/{id}','PostController@editpost')->middleware('auth');
+Route::get('/delete/{id}','PostController@deletepost')->middleware('auth');
+Route::get('/category/{id}','PostController@category')->middleware('auth');
+Route::get('/like/{id}','PostController@like')->middleware('auth');
+Route::get('/dislike/{id}','PostController@dislike')->middleware('auth');
+Route::post('/comment/{id}','PostController@comment')->middleware('auth');
+Route::post('/search','PostController@search')->middleware('auth');
 
 
 //for profile controller
-Route::get('/profile','ProfileController@profile');
-Route::post('/addProfile','ProfileController@addProfile');
+Route::get('/profile','ProfileController@profile')->middleware('auth');
+Route::post('/addProfile','ProfileController@addProfile')->middleware('auth');
 
 //for Category controller
-Route::get('/category','CategoryController@category');
-Route::post('/addCategory','CategoryController@addCategory');
+Route::get('/category','CategoryController@category')->middleware('auth');
+Route::post('/addCategory','CategoryController@addCategory')->middleware('auth');
